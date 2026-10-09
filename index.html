@@ -6,7 +6,7 @@
 <!--ARTIFACT-START-->
 <title>Cheick & Petra</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Karla:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Karla:wght@400;500;600&display=swap">
 <style>
 /* Single light theme by design: sunset over the cypresses. */
 :root{
@@ -18,7 +18,7 @@
 }
 *{box-sizing:border-box}
 html{height:100%}
-body{margin:0;background:var(--mist);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--mist);color:var(--ink);font-family:var(--body);font-size:1.0625rem;font-weight:500;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 img{max-width:100%}
 [hidden]{display:none!important}
@@ -26,26 +26,27 @@ figure{margin:0}
 .gutter{padding-inline:clamp(16px,5vw,48px)}
 
 .top{position:absolute;inset:0 0 auto 0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding-block:1.25rem;padding-inline:clamp(16px,5vw,48px)}
-.mono{font-family:var(--body);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--body);font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 .langs{display:flex;gap:.25rem}
 .langs button{appearance:none;border:1px solid var(--line);background:rgba(251,248,243,.6);color:var(--ink);padding:.4rem .65rem;border-radius:999px;cursor:pointer;font-family:var(--body);font-size:.75rem;letter-spacing:.14em;backdrop-filter:blur(6px)}
 .langs button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .langs button:focus-visible,.btn:focus-visible{outline:2px solid var(--gold-ink);outline-offset:2px}
 
-.eyebrow{margin:0;font-family:var(--body);font-size:.8125rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-ink)}
-h1{margin:0;font-family:var(--display);font-weight:300;font-style:italic;font-size:clamp(3.25rem,10vw,6.5rem);line-height:1;letter-spacing:-.01em;text-wrap:balance}
-h1 .amp{font-style:italic;font-weight:300;color:var(--gold-ink);padding-inline:.12em}
-.date{margin:.75rem 0 0;font-family:var(--display);font-weight:400;font-size:clamp(2.25rem,6vw,3.5rem);line-height:1;letter-spacing:.14em;font-variant-numeric:tabular-nums}
-.place{margin:.25rem 0 0;font-size:.9375rem;letter-spacing:.08em;color:var(--muted)}
-.long{margin:0;font-family:var(--display);font-size:1.25rem;color:var(--muted)}
+.eyebrow{margin:0;font-family:var(--body);font-size:1.0625rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-ink)}
+h1{margin:0;font-family:var(--display);font-weight:600;font-style:italic;font-size:clamp(3.25rem,10vw,6.5rem);line-height:1;letter-spacing:-.01em;text-wrap:balance}
+h1 .amp{font-style:italic;font-weight:500;color:var(--gold-ink);padding-inline:.12em}
+.date{margin:.75rem 0 0;font-family:var(--display);font-weight:600;font-style:italic;font-size:clamp(2.25rem,6vw,3.5rem);line-height:1;letter-spacing:.02em;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+.date sup{font-size:.42em;vertical-align:baseline;position:relative;top:-.9em;letter-spacing:0;margin-right:.08em}
+.place{margin:.25rem 0 0;font-size:1rem;font-weight:500;letter-spacing:.08em;color:var(--muted)}
+.long{margin:0;font-family:var(--display);font-size:1.25rem;font-weight:500;color:var(--muted);font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
 
 main{max-width:40rem;margin:0 auto;padding-block:3.5rem 4rem;display:grid;gap:3.5rem}
 section{display:grid;gap:1rem}
 h2{margin:0;font-family:var(--display);font-weight:400;font-size:2rem;line-height:1.1;letter-spacing:-.005em;text-wrap:balance}
 .label{margin:0;font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-ink)}
-.intro{margin:0;font-family:var(--display);font-size:1.5rem;line-height:1.35;font-weight:400;text-align:center;max-width:32ch;justify-self:center;text-wrap:balance}
+.intro{margin:0;font-family:var(--display);font-size:1.5rem;line-height:1.35;font-weight:500;text-align:center;max-width:32ch;justify-self:center;text-wrap:balance}
 .rule{width:3rem;height:1px;background:var(--gold-ink);justify-self:center;opacity:.7}
-.soon{margin:0;text-align:center;color:var(--muted);max-width:40ch;justify-self:center}
+.soon{margin:0;font-weight:500;text-align:center;color:var(--muted);max-width:40ch;justify-self:center}
 .photo{display:block;width:100%;height:100%;object-fit:cover}
 figcaption{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:.75rem;text-align:center}
 
@@ -75,7 +76,7 @@ figcaption{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:v
 .facts dd{margin:0;font-family:var(--display);font-size:1.5rem;font-variant-numeric:tabular-nums}
 .card p{margin:0;color:var(--muted)}
 
-footer{text-align:center;padding-block:2rem 3rem;display:grid;gap:.35rem;color:var(--dim);font-size:.8125rem;letter-spacing:.1em}
+footer{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1;text-align:center;padding-block:2rem 3rem;display:grid;gap:.35rem;color:var(--dim);font-size:.8125rem;letter-spacing:.1em}
 footer .n{font-family:var(--display);font-size:1.5rem;font-style:italic;color:var(--ink);letter-spacing:0}
 @media (max-width:480px){ .card{padding:1.25rem} }
 
@@ -97,8 +98,8 @@ main .beach{aspect-ratio:4/3;overflow:hidden}
 @media (min-width:641px){
   .hero{align-content:center;justify-items:end;text-align:right}
   .hero .bg{object-position:50% 40%}
-  .hero::before{background:radial-gradient(ellipse 40% 55% at 80% 30%,rgba(243,236,226,.7) 0%,rgba(243,236,226,.35) 55%,rgba(243,236,226,0) 100%)}
-  .hero .inner{padding:0 clamp(2rem,6vw,6rem) 40vh 0;max-width:40rem;justify-items:end}
+  .hero::before{background:radial-gradient(ellipse 26% 30% at 84% 20%,rgba(243,236,226,.6) 0%,rgba(243,236,226,.3) 55%,rgba(243,236,226,0) 100%)}
+  .hero .inner{padding:0 clamp(2rem,6vw,6rem) 64vh 0;max-width:40rem;justify-items:end}
   .hero h1{font-size:clamp(3.25rem,7vw,6rem)}
   .top .mono{display:none}
   .top{justify-content:flex-end}
@@ -185,7 +186,7 @@ const CONFIG = {
   }
 };
 const T = {
-  en:{ locale:"en-GB", eyebrow:"Save the date", place:"Gazárka · Slovakia",
+  en:{ locale:"en-GB", eyebrow:"Save the date", dateHero:"1<sup>st</sup> May 2027", place:"Gazárka · Slovakia",
     intro:"We're getting married at Gazárka, and we'd love you to be there.",
     soon:"Details on travel and where to stay will follow.",
     howLabel:"The journey", howTitle:"How to get there",
@@ -198,7 +199,7 @@ const T = {
     stayLabel:"For guests from abroad", stayTitle:"Where to stay",
     stayText:"We have booked 35 places at Chata Kovalinka for guests coming from abroad, from 30 April to 2 May.",
     fWhen:"Dates", fPlaces:"Places" },
-  it:{ locale:"it-IT", eyebrow:"Segnatevi la data", place:"Gazárka · Slovacchia",
+  it:{ locale:"it-IT", eyebrow:"Segnatevi la data", dateHero:"1 maggio 2027", place:"Gazárka · Slovacchia",
     intro:"Ci sposiamo a Gazárka e ci piacerebbe tanto avervi con noi.",
     soon:"I dettagli su viaggio e alloggio arriveranno presto.",
     howLabel:"Il viaggio", howTitle:"Come arrivare",
@@ -211,7 +212,7 @@ const T = {
     stayLabel:"Per chi arriva dall'estero", stayTitle:"Dove dormire",
     stayText:"Abbiamo prenotato 35 posti alla Chata Kovalinka per chi arriva dall'estero, dal 30 aprile al 2 maggio.",
     fWhen:"Date", fPlaces:"Posti" },
-  sk:{ locale:"sk-SK", eyebrow:"Poznačte si dátum", place:"Gazárka · Slovensko",
+  sk:{ locale:"sk-SK", eyebrow:"Poznačte si dátum", dateHero:"1. mája 2027", place:"Gazárka · Slovensko",
     intro:"Berieme sa na Gazárke a budeme radi, ak prídete.",
     soon:"Podrobnosti o ceste a ubytovaní pošleme čoskoro.",
     howLabel:"Cesta", howTitle:"Ako sa k nám dostať",
@@ -231,7 +232,6 @@ const d=CONFIG.date;
 $('#names').innerHTML=`${CONFIG.names[0]}<span class="amp">&amp;</span>${CONFIG.names[1]}`;
 $('#topNames').textContent=`${CONFIG.names[0]} & ${CONFIG.names[1]}`;
 $('#fNames').textContent=`${CONFIG.names[0]} & ${CONFIG.names[1]}`;
-$('#dateShort').textContent=`${d.getDate()} · ${d.getMonth()+1} · ${d.getFullYear()}`;
 $('#fDate').textContent=`${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`;
 $('#mapGaz').href=CONFIG.maps.gazarka; $('#mapStay').href=CONFIG.maps.kovalinka;
 document.querySelectorAll('.details').forEach(s=>{ s.hidden=!CONFIG.showDetails; });
@@ -240,6 +240,7 @@ function setLang(l){
   const t=T[l]||T.en; l=T[l]?l:'en';
   document.documentElement.lang=l;
   document.querySelectorAll('[data-t]').forEach(el=>{ el.textContent=t[el.dataset.t]; });
+  $('#dateShort').innerHTML=t.dateHero;
   $('#dateLong').textContent=new Intl.DateTimeFormat(t.locale,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d);
   $('#stops').innerHTML=t.stops.map((s,i)=>`<li class="stop${i===t.stops.length-1?' end':''}"><span class="dot"></span><div><div class="head"><span class="code">${s.code.replace('→','<span class="arrow">→</span>')}</span>${s.alt?`<span class="alt">${s.alt}</span>`:''}</div><p>${s.text}</p></div></li>`).join('');
   document.querySelectorAll('#langs button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.lang===l)));
