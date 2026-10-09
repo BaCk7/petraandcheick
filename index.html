@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--ARTIFACT-START-->
+<title>Cheick & Petra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Karla:wght@400;500;600&display=swap">
+<style>
+/* Single light theme by design: sunset over the cypresses. */
+:root{
+  --mist:#F3ECE2; --paper:#FBF8F3; --ink:#2A3B34; --muted:#5F6A62; --dim:#8E948A;
+  --gold:#E4A55A; --gold-ink:#9A5B1D; --line:rgba(42,59,52,.16);
+  --display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --body:'Karla',system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{height:100%}
+body{margin:0;background:var(--mist);color:var(--ink);font-family:var(--body);font-size:1.0625rem;font-weight:500;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+[hidden]{display:none!important}
+figure{margin:0}
+.gutter{padding-inline:clamp(16px,5vw,48px)}
+
+.top{position:absolute;inset:0 0 auto 0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding-block:1.25rem;padding-inline:clamp(16px,5vw,48px)}
+.mono{font-family:var(--body);font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.langs{display:flex;gap:.25rem}
+.langs button{appearance:none;border:1px solid var(--line);background:rgba(251,248,243,.6);color:var(--ink);padding:.4rem .65rem;border-radius:999px;cursor:pointer;font-family:var(--body);font-size:.75rem;letter-spacing:.14em;backdrop-filter:blur(6px)}
+.langs button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.langs button:focus-visible,.btn:focus-visible{outline:2px solid var(--gold-ink);outline-offset:2px}
+
+.eyebrow{margin:0;font-family:var(--body);font-size:1.0625rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-ink)}
+h1{margin:0;font-family:var(--display);font-weight:600;font-style:italic;font-size:clamp(3.25rem,10vw,6.5rem);line-height:1;letter-spacing:-.01em;text-wrap:balance}
+h1 .amp{font-style:italic;font-weight:500;color:var(--gold-ink);padding-inline:.12em}
+.date{margin:.75rem 0 0;font-family:var(--display);font-weight:600;font-style:italic;font-size:clamp(2.25rem,6vw,3.5rem);line-height:1;letter-spacing:.02em;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+.date sup{font-size:.42em;vertical-align:baseline;position:relative;top:-.9em;letter-spacing:0;margin-right:.08em}
+.place{margin:.25rem 0 0;font-size:1rem;font-weight:500;letter-spacing:.08em;color:var(--muted)}
+.long{margin:0;font-family:var(--display);font-size:1.25rem;font-weight:500;color:var(--muted);font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+
+main{max-width:40rem;margin:0 auto;padding-block:3.5rem 4rem;display:grid;gap:3.5rem}
+section{display:grid;gap:1rem}
+h2{margin:0;font-family:var(--display);font-weight:400;font-size:2rem;line-height:1.1;letter-spacing:-.005em;text-wrap:balance}
+.label{margin:0;font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-ink)}
+.intro{margin:0;font-family:var(--display);font-size:1.5rem;line-height:1.35;font-weight:500;text-align:center;max-width:32ch;justify-self:center;text-wrap:balance}
+.rule{width:3rem;height:1px;background:var(--gold-ink);justify-self:center;opacity:.7}
+.soon{margin:0;font-weight:500;text-align:center;color:var(--muted);max-width:40ch;justify-self:center}
+.photo{display:block;width:100%;height:100%;object-fit:cover}
+figcaption{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:.75rem;text-align:center}
+
+.stops{list-style:none;margin:.5rem 0 0;padding:0;display:grid}
+.stop{display:grid;grid-template-columns:1.25rem minmax(0,1fr);gap:0 1rem;position:relative;padding-bottom:1.75rem}
+.stop:last-child{padding-bottom:0}
+.stop .dot{width:.7rem;height:.7rem;border-radius:50%;border:1.5px solid var(--gold-ink);background:var(--mist);margin-top:.45rem;justify-self:center;position:relative;z-index:1}
+.stop.end .dot{background:var(--gold-ink)}
+.stop::before{content:"";position:absolute;left:calc(.625rem - .5px);top:1rem;bottom:0;width:1px;background:var(--line)}
+.stop:last-child::before{display:none}
+.stop .head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem .6rem}
+.stop .code{font-family:var(--display);font-size:1.5rem;font-weight:500;letter-spacing:.04em}
+.stop .arrow{color:var(--gold-ink)}
+.stop .alt{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.stop p{margin:.15rem 0 0;color:var(--muted);max-width:52ch}
+.links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.5rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;font-size:.8125rem;letter-spacing:.12em;text-transform:uppercase;padding:.7rem 1.1rem;border:1px solid var(--ink);border-radius:999px;color:var(--ink);transition:background .2s,color .2s}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.primary{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.btn.primary:hover{background:var(--gold-ink);border-color:var(--gold-ink);color:var(--paper)}
+.btn svg{width:1em;height:1em}
+.card{border:1px solid var(--line);background:var(--paper);padding:1.5rem;display:grid;gap:1rem}
+.card .name{margin:0;font-family:var(--display);font-size:1.75rem;font-weight:400}
+.facts{display:flex;flex-wrap:wrap;gap:1rem 2.5rem;margin:0;padding:0}
+.facts div{display:grid;gap:.15rem}
+.facts dt{font-size:.6875rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin:0}
+.facts dd{margin:0;font-family:var(--display);font-size:1.5rem;font-variant-numeric:tabular-nums}
+.card p{margin:0;color:var(--muted)}
+
+footer{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1;text-align:center;padding-block:2rem 3rem;display:grid;gap:.35rem;color:var(--dim);font-size:.8125rem;letter-spacing:.1em}
+footer .n{font-family:var(--display);font-size:1.5rem;font-style:italic;color:var(--ink);letter-spacing:0}
+@media (max-width:480px){ .card{padding:1.25rem} }
+
+/* Hero. Phones: the ring photo fills the screen with the text on the sky.
+   Wider screens: text centred on the left, the whole ring photo on the right. */
+.hero{position:relative;height:100vh;height:100svh;min-height:34rem;display:grid;align-content:start;justify-items:center;text-align:center;overflow:hidden;isolation:isolate}
+.hero .pic{position:absolute;inset:0;margin:0;z-index:-2}
+.hero .bg{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 100%}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(243,236,226,.9) 0%,rgba(243,236,226,.6) 24%,rgba(243,236,226,0) 46%)}
+.hero .place{color:var(--ink)}
+.hero .inner{padding-block:5.5rem 0;display:grid;gap:.5rem;justify-items:center;text-shadow:0 0 28px rgba(243,236,226,.95),0 0 10px rgba(243,236,226,.8)}
+main.wide{max-width:58rem}
+.pair{display:grid;gap:2rem}
+.pair .text{display:grid;gap:1rem;justify-items:center;text-align:center}
+/* Phones: ring hero with the names, info, beach photo, signature.
+   Wide: beach hero with the names, ring photo beside the info, signature. */
+.pair .ring{display:none}
+main .beach{aspect-ratio:4/3;overflow:hidden}
+@media (min-width:641px){
+  .hero{align-content:center;justify-items:end;text-align:right}
+  .hero .bg{object-position:50% 40%}
+  .hero::before{background:radial-gradient(ellipse 26% 30% at 84% 20%,rgba(243,236,226,.6) 0%,rgba(243,236,226,.3) 55%,rgba(243,236,226,0) 100%)}
+  .hero .inner{padding:0 clamp(2rem,6vw,6rem) 64vh 0;max-width:40rem;justify-items:end}
+  .hero h1{font-size:clamp(3.25rem,7vw,6rem)}
+  .top .mono{display:none}
+  .top{justify-content:flex-end}
+  main .beach{display:none}
+  .pair{grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:3rem;align-items:center}
+  .pair .ring{display:block;aspect-ratio:3/4;overflow:hidden;order:1}
+  .pair .text{justify-items:start;text-align:left}
+  .pair .intro,.pair .soon{text-align:left;justify-self:start}
+  .pair .rule{justify-self:start}
+}
+</style>
+</head><body>
+<header class="top">
+  <span class="mono" id="topNames"></span>
+  <nav class="langs" id="langs" aria-label="Language">
+    <button type="button" data-lang="it" aria-pressed="false">IT</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    <button type="button" data-lang="sk" aria-pressed="false">SK</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="inner gutter">
+    <p class="eyebrow" data-t="eyebrow"></p>
+    <h1 id="names"></h1>
+    <p class="date" id="dateShort"></p>
+    <p class="place" data-t="place"></p>
+  </div>
+  <figure class="pic"><img class="bg" src="img/sunset.jpg" alt=""></figure>
+</section>
+
+<main class="gutter wide">
+  <section class="pair">
+    <figure class="ring"><img class="photo" src="img/sunset.jpg" alt=""></figure>
+    <div class="text">
+      <p class="long" id="dateLong"></p>
+      <p class="intro" data-t="intro"></p>
+      <div class="rule"></div>
+      <p class="soon" data-t="soon"></p>
+    </div>
+  </section>
+  <figure class="beach"><img class="photo" src="img/beach-fixed.jpg" alt=""></figure>
+
+  <!-- Travel and accommodation: hidden until CONFIG.showDetails is true -->
+  <section class="details" hidden>
+    <p class="label" data-t="howLabel"></p>
+    <h2 data-t="howTitle"></h2>
+    <ol class="stops" id="stops"></ol>
+    <div class="links">
+      <a class="btn primary" id="mapGaz" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 14s-4.5-4.2-4.5-7.5a4.5 4.5 0 0 1 9 0C12.5 9.8 8 14 8 14z"/><circle cx="8" cy="6.5" r="1.6"/></svg><span data-t="mapBtn"></span></a>
+      <a class="btn" target="_blank" rel="noopener" href="https://www.zssk.sk/"><span data-t="trainBtn"></span></a>
+    </div>
+  </section>
+
+  <section class="details" hidden>
+    <p class="label" data-t="stayLabel"></p>
+    <h2 data-t="stayTitle"></h2>
+    <div class="card">
+      <p class="name">Chata Kovalinka</p>
+      <dl class="facts">
+        <div><dt data-t="fWhen"></dt><dd>30.4 – 2.5</dd></div>
+        <div><dt data-t="fPlaces"></dt><dd>35</dd></div>
+      </dl>
+      <p data-t="stayText"></p>
+      <div class="links"><a class="btn" id="mapStay" target="_blank" rel="noopener"><span data-t="mapBtn"></span></a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="n" id="fNames"></span>
+  <span id="fDate"></span>
+</footer>
+
+<script>
+// ---- Edit these ----
+const CONFIG = {
+  names: ["Cheick", "Petra"],
+  date: new Date(2027, 4, 1),            // 1 May 2027 (month is 0-based)
+  showDetails: false,                    // true once travel and accommodation are final
+  maps: {
+    gazarka: "https://www.google.com/maps/search/?api=1&query=Gaz%C3%A1rka%2C+%C5%A0a%C5%A1t%C3%ADn-Str%C3%A1%C5%BEe",
+    kovalinka: "https://www.google.com/maps/search/?api=1&query=Chata+Kovalinka"
+  }
+};
+const T = {
+  en:{ locale:"en-GB", eyebrow:"Save the date", dateHero:"1<sup>st</sup> May 2027", place:"Gazárka · Slovakia",
+    intro:"We're getting married at Gazárka, and we'd love you to be there.",
+    soon:"Details on travel and where to stay will follow.",
+    howLabel:"The journey", howTitle:"How to get there",
+    stops:[
+      {code:"MIL → BTS",alt:"",text:"Direct flight from Milan to Bratislava."},
+      {code:"MIL → VIE",alt:"or",text:"Fly to Vienna, then about 1 h to Bratislava by bus or train."},
+      {code:"BTS → Gazárka",alt:"then by train",text:"Regional train from Bratislava hl. st. towards Kúty. Get off at Šaštín-Stráže."}
+    ],
+    mapBtn:"Open in Maps", trainBtn:"Train timetable",
+    stayLabel:"For guests from abroad", stayTitle:"Where to stay",
+    stayText:"We have booked 35 places at Chata Kovalinka for guests coming from abroad, from 30 April to 2 May.",
+    fWhen:"Dates", fPlaces:"Places" },
+  it:{ locale:"it-IT", eyebrow:"Segnatevi la data", dateHero:"1 maggio 2027", place:"Gazárka · Slovacchia",
+    intro:"Ci sposiamo a Gazárka e ci piacerebbe tanto avervi con noi.",
+    soon:"I dettagli su viaggio e alloggio arriveranno presto.",
+    howLabel:"Il viaggio", howTitle:"Come arrivare",
+    stops:[
+      {code:"MIL → BTS",alt:"",text:"Volo diretto da Milano a Bratislava."},
+      {code:"MIL → VIE",alt:"oppure",text:"Volo per Vienna, poi circa 1 h fino a Bratislava in bus o treno."},
+      {code:"BTS → Gazárka",alt:"poi in treno",text:"Treno regionale da Bratislava hl. st. direzione Kúty. Scendere a Šaštín-Stráže."}
+    ],
+    mapBtn:"Apri in Maps", trainBtn:"Orari dei treni",
+    stayLabel:"Per chi arriva dall'estero", stayTitle:"Dove dormire",
+    stayText:"Abbiamo prenotato 35 posti alla Chata Kovalinka per chi arriva dall'estero, dal 30 aprile al 2 maggio.",
+    fWhen:"Date", fPlaces:"Posti" },
+  sk:{ locale:"sk-SK", eyebrow:"Poznačte si dátum", dateHero:"1. mája 2027", place:"Gazárka · Slovensko",
+    intro:"Berieme sa na Gazárke a budeme radi, ak prídete.",
+    soon:"Podrobnosti o ceste a ubytovaní pošleme čoskoro.",
+    howLabel:"Cesta", howTitle:"Ako sa k nám dostať",
+    stops:[
+      {code:"MIL → BTS",alt:"",text:"Priamy let z Milána do Bratislavy."},
+      {code:"MIL → VIE",alt:"alebo",text:"Let do Viedne, potom asi 1 h do Bratislavy autobusom alebo vlakom."},
+      {code:"BTS → Gazárka",alt:"potom vlakom",text:"Regionálny vlak z Bratislavy hl. st. smer Kúty. Vystúpte v Šaštíne-Strážach."}
+    ],
+    mapBtn:"Otvoriť v Mapách", trainBtn:"Cestovný poriadok",
+    stayLabel:"Pre hostí zo zahraničia", stayTitle:"Ubytovanie",
+    stayText:"Pre hostí zo zahraničia máme rezervovaných 35 miest v Chate Kovalinka, od 30. apríla do 2. mája.",
+    fWhen:"Termín", fPlaces:"Miesta" }
+};
+
+const $=s=>document.querySelector(s);
+const d=CONFIG.date;
+$('#names').innerHTML=`${CONFIG.names[0]}<span class="amp">&amp;</span>${CONFIG.names[1]}`;
+$('#topNames').textContent=`${CONFIG.names[0]} & ${CONFIG.names[1]}`;
+$('#fNames').textContent=`${CONFIG.names[0]} & ${CONFIG.names[1]}`;
+$('#fDate').textContent=`${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`;
+$('#mapGaz').href=CONFIG.maps.gazarka; $('#mapStay').href=CONFIG.maps.kovalinka;
+document.querySelectorAll('.details').forEach(s=>{ s.hidden=!CONFIG.showDetails; });
+
+function setLang(l){
+  const t=T[l]||T.en; l=T[l]?l:'en';
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-t]').forEach(el=>{ el.textContent=t[el.dataset.t]; });
+  $('#dateShort').innerHTML=t.dateHero;
+  $('#dateLong').textContent=new Intl.DateTimeFormat(t.locale,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d);
+  $('#stops').innerHTML=t.stops.map((s,i)=>`<li class="stop${i===t.stops.length-1?' end':''}"><span class="dot"></span><div><div class="head"><span class="code">${s.code.replace('→','<span class="arrow">→</span>')}</span>${s.alt?`<span class="alt">${s.alt}</span>`:''}</div><p>${s.text}</p></div></li>`).join('');
+  document.querySelectorAll('#langs button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.lang===l)));
+  try{localStorage.setItem('wedding-lang',l)}catch(e){}
+}
+document.querySelectorAll('#langs button').forEach(x=>x.addEventListener('click',()=>setLang(x.dataset.lang)));
+let initial='en';
+try{ initial=localStorage.getItem('wedding-lang')||''; }catch(e){}
+if(!T[initial]){ const nav=(navigator.languages||[navigator.language||'en']).map(x=>x.slice(0,2).toLowerCase()); initial=nav.find(x=>T[x])||'en'; }
+setLang(initial);
+
+// ---- Hero crop: keep the ring in frame, show as much sunset as the box allows ----
+(function(){
+  const hero=$('.hero'), box=hero.querySelector('.pic'), img=box.querySelector('.bg');
+  const RING=0.89;           // bottom of the ring, as a fraction of the photo height
+  const AR=1350/1800;        // photo width / height
+  const wide=matchMedia('(min-width:641px)');
+  function fit(){
+    // wide: the beach photo behind the names. phones: the vertical ring photo, cropped to keep the ring
+    const want=wide.matches?'img/beach-fixed.jpg':'img/sunset.jpg';
+    if(img.getAttribute('src')!==want) img.setAttribute('src',want);
+    if(wide.matches){ img.style.objectPosition=''; return; }
+    const w=box.clientWidth, h=box.clientHeight;
+    const f=h/(w/AR);        // fraction of the photo height visible when width-fitted
+    let y=50;
+    if(f<1){ const t=Math.max(0,RING-f); y=Math.min(100,100*t/(1-f)); }
+    img.style.objectPosition=`50% ${y.toFixed(1)}%`;
+  }
+  fit(); addEventListener('resize',fit);
+})();
+</script>
+<!--ARTIFACT-END-->
+</body>
+</html>
