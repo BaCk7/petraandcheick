@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!--ARTIFACT-START-->
-<title>Cheick & Petra</title>
+<title>Petra & Cheick</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Karla:wght@400;500;600&display=swap">
 <style>
@@ -42,8 +42,11 @@ h1 .amp{font-style:italic;font-weight:500;color:var(--gold-ink);padding-inline:.
 
 main{max-width:40rem;margin:0 auto;padding-block:3.5rem 4rem;display:grid;gap:3.5rem}
 section{display:grid;gap:1rem}
-h2{margin:0;font-family:var(--display);font-weight:400;font-size:2rem;line-height:1.1;letter-spacing:-.005em;text-wrap:balance}
-.label{margin:0;font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-ink)}
+h2{margin:0;font-family:var(--display);font-weight:500;font-size:1.75rem;line-height:1.1;letter-spacing:-.005em;text-wrap:balance;text-align:center}
+main section>.label{font-size:1.125rem;letter-spacing:.32em;text-align:center;display:flex;align-items:center;gap:1.25rem}
+main section>.label::before,main section>.label::after{content:"";flex:1;height:1px;background:var(--gold-ink);opacity:.45;min-width:1.5rem}
+main section>.lead{text-align:center;justify-self:center}
+.label{margin:0;font-size:.8125rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-ink)}
 .intro{margin:0;font-family:var(--display);font-size:1.5rem;line-height:1.35;font-weight:500;text-align:center;max-width:32ch;justify-self:center;text-wrap:balance}
 .rule{width:3rem;height:1px;background:var(--gold-ink);justify-self:center;opacity:.7}
 .soon{margin:0;font-weight:500;text-align:center;color:var(--muted);max-width:40ch;justify-self:center}
@@ -76,6 +79,68 @@ figcaption{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:v
 .facts dd{margin:0;font-family:var(--display);font-size:1.5rem;font-variant-numeric:tabular-nums}
 .card p{margin:0;color:var(--muted)}
 
+/* Details: venue, travel options, stay cards */
+.lead{margin:0;color:var(--muted);max-width:60ch}
+.sub{margin:1rem 0 0;font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-ink)}
+.addr{margin:0;color:var(--muted);text-align:center}
+.card{text-align:center}
+.card .facts,.card .links{justify-content:center}
+.opt .stops{text-align:left;max-width:62ch;margin-inline:auto;width:100%}
+.opt .note{text-align:center;max-width:62ch;margin-inline:auto}
+main section>.lead,main section>.sub{text-align:center;justify-self:center}
+.map{width:100%;height:14rem;overflow:hidden;background:var(--mist)}
+.map iframe{display:block;width:100%;height:100%;border:0}
+.two{display:grid;gap:1.25rem}
+.opt h3,.stay h3{margin:0;font-family:var(--display);font-weight:500;font-size:1.5rem;line-height:1.15}
+.opt .kicker{margin:0;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink)}
+.opt .stops{margin-top:0}
+.opt .stop{padding-bottom:1rem}
+.opt .stop p{font-size:1rem}
+.note{margin:0;font-size:.9375rem;color:var(--dim);font-style:italic}
+.either{margin:.1rem 0 .5rem;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-ink)}
+.branches{display:grid;gap:.75rem}
+.branch{position:relative;border-left:2px solid var(--gold);padding-left:.85rem}
+.branch p{margin:0}
+.orw{display:block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:.2rem}
+@media (min-width:641px){.branches{grid-template-columns:1fr 1fr;gap:1.25rem}}
+.opt a,.lead a{color:var(--gold-ink);text-decoration-thickness:1px;text-underline-offset:3px}
+.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem}
+.strip img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.strip.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.strip.n1{grid-template-columns:1fr}
+.strip.n1 img{aspect-ratio:3/2}
+.slides{display:block;position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--mist)}
+.slides img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;opacity:0;transition:opacity .8s ease}
+.slides img.on{opacity:1}
+.dots{position:absolute;left:0;right:0;bottom:.6rem;display:flex;justify-content:center;gap:.4rem;z-index:1}
+.dots button{appearance:none;border:0;width:.5rem;height:.5rem;border-radius:999px;background:rgba(251,248,243,.55);padding:0;cursor:pointer}
+.dots button.on{background:var(--paper);width:1.25rem}
+.sl-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:1;appearance:none;border:0;width:2.5rem;height:2.5rem;border-radius:999px;background:rgba(42,59,52,.45);color:#fff;font-size:1.5rem;line-height:1;display:grid;place-items:center;cursor:pointer;opacity:.85}
+.sl-nav:hover{background:rgba(42,59,52,.7)}
+.sl-prev{left:.6rem}.sl-next{right:.6rem}
+@media (prefers-reduced-motion:reduce){.slides img{transition:none}}
+.strip.n2 img{aspect-ratio:3/2}
+.venue-strip{grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem}
+.venue-strip img{aspect-ratio:3/2}
+.strip img{cursor:zoom-in}
+.lightbox{position:fixed;inset:0;z-index:50;background:rgba(20,30,27,.9);display:grid;place-items:center;padding:1rem;cursor:zoom-out}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lightbox button{position:absolute;appearance:none;border:0;background:rgba(251,248,243,.15);color:#fff;width:2.75rem;height:2.75rem;border-radius:999px;font-size:1.5rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+.lightbox button:hover{background:rgba(251,248,243,.3)}
+.lb-close{top:calc(env(safe-area-inset-top,0px) + .75rem);right:.75rem}
+.lb-nav{top:50%;transform:translateY(-50%)}
+.lb-prev{left:.75rem}.lb-next{right:.75rem}
+.lb-count{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 1rem);left:50%;transform:translateX(-50%);color:rgba(255,255,255,.8);font-size:.8125rem;letter-spacing:.14em}
+.lightbox img{user-select:none;-webkit-user-drag:none;touch-action:pan-y}
+@media (max-width:640px){
+  h2{font-size:1.5rem}
+  main section>.label{font-size:.9375rem;gap:.75rem;letter-spacing:.24em}
+  .venue-strip{grid-template-columns:1fr 1fr}
+  .venue-strip img:first-child{grid-column:1/-1;aspect-ratio:16/10}
+  .strip.n2{grid-template-columns:1fr}
+}
+.stay .facts dd{font-size:1.25rem}
+
 footer{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1;text-align:center;padding-block:2rem 3rem;display:grid;gap:.35rem;color:var(--dim);font-size:.8125rem;letter-spacing:.1em}
 footer .n{font-family:var(--display);font-size:1.5rem;font-style:italic;color:var(--ink);letter-spacing:0}
 @media (max-width:480px){ .card{padding:1.25rem} }
@@ -104,11 +169,13 @@ main .beach{aspect-ratio:4/3;overflow:hidden}
   .top .mono{display:none}
   .top{justify-content:flex-end}
   main .beach{display:none}
-  .pair{grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:3rem;align-items:center}
-  .pair .ring{display:block;aspect-ratio:4/3;overflow:hidden;order:1}
-  .pair .text{justify-items:start;text-align:left}
-  .pair .intro,.pair .soon{text-align:left;justify-self:start}
-  .pair .rule{justify-self:start}
+  .pair{grid-template-columns:1fr;gap:2rem}
+  .pair .ring{display:block;aspect-ratio:16/10;overflow:hidden;order:1;width:100%;max-width:44rem;margin-inline:auto}
+  .pair .text{justify-items:center;text-align:center}
+  .two{grid-template-columns:1fr 1fr;align-items:start}
+  #options{grid-template-columns:1fr}
+  #stays,#stays2{grid-template-columns:1fr}
+  #stays .strip{grid-template-columns:repeat(6,minmax(0,1fr))}
 }
 </style>
 </head><body>
@@ -138,36 +205,76 @@ main .beach{aspect-ratio:4/3;overflow:hidden}
       <p class="long" id="dateLong"></p>
       <p class="intro" data-t="intro"></p>
       <div class="rule"></div>
-      <p class="soon" data-t="soon"></p>
     </div>
   </section>
   <figure class="beach"><img class="photo" src="img/beach-fixed.jpg" alt=""></figure>
 
-  <!-- Travel and accommodation: hidden until CONFIG.showDetails is true -->
-  <section class="details" hidden>
-    <p class="label" data-t="howLabel"></p>
-    <h2 data-t="howTitle"></h2>
-    <ol class="stops" id="stops"></ol>
-    <div class="links">
-      <a class="btn primary" id="mapGaz" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 14s-4.5-4.2-4.5-7.5a4.5 4.5 0 0 1 9 0C12.5 9.8 8 14 8 14z"/><circle cx="8" cy="6.5" r="1.6"/></svg><span data-t="mapBtn"></span></a>
-      <a class="btn" target="_blank" rel="noopener" href="https://www.zssk.sk/"><span data-t="trainBtn"></span></a>
+  <section id="venue">
+    <p class="label" data-t="venueLabel"></p>
+    <h2 data-t="venueTitle"></h2>
+    <div class="card">
+      <div class="strip slides"><img src="img/venue-3.jpg" alt="" class="on"><img src="img/venue-1.jpg" alt="" loading="lazy"><img src="img/venue-2.jpg" alt="" loading="lazy"><button type="button" class="sl-nav sl-prev" aria-label="Previous">‹</button><button type="button" class="sl-nav sl-next" aria-label="Next">›</button><div class="dots"><button type="button" data-k="0" class="on" aria-label="1"></button><button type="button" data-k="1" aria-label="2"></button><button type="button" data-k="2" aria-label="3"></button></div></div>
+      <p class="addr">Do Gazárky 1484/22<br>908 41 Šaštín-Stráže, Slovakia</p>
+      <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2636.945139413708!2d17.134140143382478!3d48.63003185480088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476ccec754f8be9d%3A0x29570f6d9a2a2ad!2sTropic%20Pizza!5e0!3m2!1sen!2sat!4v1792331296991!5m2!1sen!2sat" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Map"></iframe></div>
+      <div class="links"><a class="btn primary" id="mapVenue" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 14s-4.5-4.2-4.5-7.5a4.5 4.5 0 0 1 9 0C12.5 9.8 8 14 8 14z"/><circle cx="8" cy="6.5" r="1.6"/></svg><span data-t="mapBtn"></span></a></div>
     </div>
   </section>
 
-  <section class="details" hidden>
+  <section id="travel" class="abroad">
+    <p class="label" data-t="travelLabel"></p>
+    <h2 data-t="travelTitle"></h2>
+    <p class="lead" data-t="travelIntro"></p>
+    <div class="two" id="options"></div>
+    <div class="links" hidden>
+      <a class="btn" id="stationLink" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 14s-4.5-4.2-4.5-7.5a4.5 4.5 0 0 1 9 0C12.5 9.8 8 14 8 14z"/><circle cx="8" cy="6.5" r="1.6"/></svg><span data-t="stationBtn"></span></a>
+    </div>
+    <p class="lead" data-t="travelOutro"></p>
+  </section>
+
+  <section id="local" class="local">
+    <p class="label" data-t="travelLabel"></p>
+    <h2 data-t="travelTitle"></h2>
+    <p class="lead" id="localTravel"></p>
+    <div class="links" hidden><a class="btn primary" id="stationLink2" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 14s-4.5-4.2-4.5-7.5a4.5 4.5 0 0 1 9 0C12.5 9.8 8 14 8 14z"/><circle cx="8" cy="6.5" r="1.6"/></svg><span data-t="stationBtn"></span></a></div>
+  </section>
+
+  <section id="stay">
     <p class="label" data-t="stayLabel"></p>
     <h2 data-t="stayTitle"></h2>
-    <div class="card">
-      <p class="name">Chata Kovalinka</p>
-      <dl class="facts">
-        <div><dt data-t="fWhen"></dt><dd>30.4 – 2.5</dd></div>
-        <div><dt data-t="fPlaces"></dt><dd>35</dd></div>
-      </dl>
-      <p data-t="stayText"></p>
-      <div class="links"><a class="btn" id="mapStay" target="_blank" rel="noopener"><span data-t="mapBtn"></span></a></div>
-    </div>
+    <p class="lead abroad" data-t="stayIntro"></p>
+    <div class="two" id="stays"></div>
+    <p class="sub abroad" data-t="stayAlt"></p>
+    <p class="lead abroad" id="stayAltText"></p>
+    <div class="two" id="stays2"></div>
+    <p class="lead abroad" id="stayMore"></p>
+  </section>
+
+  <section id="program">
+    <p class="label" data-t="progLabel"></p>
+    <h2 data-t="progTitle"></h2>
+    <p class="lead" data-t="progText"></p>
+  </section>
+
+  <section id="menu">
+    <p class="label" data-t="menuLabel"></p>
+    <h2 data-t="menuTitle"></h2>
+    <p class="lead" data-t="menuText"></p>
+  </section>
+
+  <section id="gifts">
+    <p class="label" data-t="giftLabel"></p>
+    <h2 data-t="giftTitle"></h2>
+    <p class="lead" data-t="giftText"></p>
+  </section>
+
+  <section id="ideas" class="abroad">
+    <p class="label" data-t="ideasLabel"></p>
+    <h2 data-t="ideasTitle"></h2>
+    <p class="lead" data-t="ideasText"></p>
   </section>
 </main>
+
+<div class="lightbox" id="lightbox" hidden><button type="button" class="lb-close" id="lbClose" aria-label="Close">×</button><button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button><img id="lbImg" src="" alt=""><button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button><span class="lb-count" id="lbCount"></span></div>
 
 <footer>
   <span class="n" id="fNames"></span>
@@ -177,54 +284,120 @@ main .beach{aspect-ratio:4/3;overflow:hidden}
 <script>
 // ---- Edit these ----
 const CONFIG = {
-  names: ["Cheick", "Petra"],
+  names: ["Petra", "Cheick"],
   date: new Date(2027, 4, 1),            // 1 May 2027 (month is 0-based)
-  showDetails: false,                    // true once travel and accommodation are final
   maps: {
-    gazarka: "https://www.google.com/maps/search/?api=1&query=Gaz%C3%A1rka%2C+%C5%A0a%C5%A1t%C3%ADn-Str%C3%A1%C5%BEe",
-    kovalinka: "https://www.google.com/maps/search/?api=1&query=Chata+Kovalinka"
+    venue: "https://maps.app.goo.gl/35SjaaBctbu8KHAPA",
+    station: "https://maps.app.goo.gl/YXfyM3RzLKd5Nks98",
+    kovalinka: "https://maps.app.goo.gl/BATRRxTWzp5rVxjc9"
+  },
+  booking: { penzion: "https://www.booking.com/Share-Sb28KL" },
+  photos: {
+    chata: ["img/chata-1.jpg","img/chata-2.jpg","img/chata-3.jpg","img/chata-4.jpg","img/chata-5.jpg","img/chata-6.jpg"],
+    penzion: ["img/penzion-1.jpg","img/penzion-2.jpg"]
   }
 };
 const T = {
   en:{ locale:"en-GB", eyebrow:"Save the date", dateHero:"1<sup>st</sup> May 2027", place:"Gazárka · Slovakia",
     intro:"We're getting married at Gazárka, and we'd love you to be there.",
-    soon:"Details on travel and where to stay will follow.",
-    howLabel:"The journey", howTitle:"How to get there",
-    stops:[
-      {code:"MIL → BTS",alt:"",text:"Direct flight from Milan to Bratislava."},
-      {code:"MIL → VIE",alt:"or",text:"Fly to Vienna, then about 1 h to Bratislava by bus or train."},
-      {code:"BTS → Gazárka",alt:"then by train",text:"Regional train from Bratislava hl. st. towards Kúty. Get off at Šaštín-Stráže."}
-    ],
-    mapBtn:"Open in Maps", trainBtn:"Train timetable",
-    stayLabel:"For guests from abroad", stayTitle:"Where to stay",
-    stayText:"We have booked 35 places at Chata Kovalinka for guests coming from abroad, from 30 April to 2 May.",
-    fWhen:"Dates", fPlaces:"Places" },
-  it:{ locale:"it-IT", eyebrow:"Segnatevi la data", dateHero:"1 maggio 2027", place:"Gazárka · Slovacchia",
+    mapBtn:"Open in Maps", orLabel:"Then, either", orWord:"or", bookBtn:"See on Booking.com", stationBtn:"Train station in Maps",
+    venueLabel:"Where", venueTitle:"Tropic Pizza, Gazárka",
+    giftLabel:"Gifts", giftTitle:"Please, no gifts", giftText:"Having you there is the best gift. If you'd still like to give something, a small contribution in cash is welcome, but it really isn't expected.",
+    progLabel:"The programme", progTitle:"Coming soon", progText:"We start around midday on Saturday and keep going until 4 in the morning. The full programme will follow.",
+    menuLabel:"Food", menuTitle:"The menu", menuText:"Closer to the date we'll ask everyone about allergies, diets and preferences. Nothing to do for now.",
+    travelLabel:"Getting there", travelTitle:"How to reach Gazárka",
+    travelIntro:"Gazárka is a lakeside spot in western Slovakia, about an hour from Bratislava. Bratislava airport is the closest and the simplest. Vienna airport also works: it's a bus to Bratislava and then a train or taxi to us.",
+    opt1:{ kicker:"Option 1", title:"Via Bratislava",
+      steps:[
+        "Land at Bratislava airport (BTS).",
+        {or:[
+          "Taxi straight to Gazárka. About 1 hour, prices below.",
+          "<a href='https://www.uber.com' target='_blank' rel='noopener'>Uber</a> to Gazárka. About 60 to 80 € during the day."
+        ]}
+      ],
+      note:"We're arranging a group rate with a taxi company. Details and prices soon. We can also match people up to share a car. If you arrive a day early, you can also sleep in Bratislava, see the city, and come out to us in the morning by train, see option 2."},
+    opt2:{ kicker:"Option 2", title:"Via Vienna",
+      steps:[
+        "Land at Vienna airport (VIE).",
+        "<a href='https://www.slovaklines.sk/en/slovakia/destinations-and-experiences/vienna/' target='_blank' rel='noopener'>Slovak Lines</a> bus from the airport to Bratislava main station (Hlavná stanica). Almost every hour, 15 €, 50 minutes. For 2 € more the ticket is refundable if the bus is cancelled or late.",
+        {or:[
+          "Train to <a href='https://maps.app.goo.gl/YXfyM3RzLKd5Nks98' target='_blank' rel='noopener'>Šaštín-Stráže</a>. About 1 h 15, every 1 to 2 hours, last train at 19:58, about 4 €. Tickets in the <a href='https://apps.apple.com/de/app/ideme-vlakom/id1465574367?l=en-GB' target='_blank' rel='noopener'>Ideme Vlakom</a> app or on <a href='https://www.thetrainline.com' target='_blank' rel='noopener'>Trainline</a>. Gazárka is a short ride from the station.",
+          "Taxi or <a href='https://www.uber.com' target='_blank' rel='noopener'>Uber</a> from the station to Gazárka. About 1 hour, 50 to 80 €."
+        ]}
+      ],
+      note:""},
+    travelOutro:"",
+    localTravel:"",
+    ideasLabel:"Make a trip of it", ideasTitle:"Come a few days early or stay on",
+    ideasText:"You'll be close to three capitals. Bratislava's old town is an easy afternoon, Vienna is under an hour away by bus, and Budapest is about 3 hours by train. Arrive a few days early or stay on after the wedding and see one of them.",
+    stayLabel:"Where to stay", stayTitle:"We've booked a chalet for you",
+    stayIntro:"Don't worry about accommodation. We've reserved Chata Kovalinka for guests from abroad: everyone together, 2 minutes on foot from the venue. We think it's the best option. If you'd prefer something else, see the alternative below.", stayAlt:"Other options", stayAltText:"Penzión Gazárka, if you'd like something more private.", stayMore:"Or search on <a href='https://www.booking.com/searchresults.html?ss=%C5%A0a%C5%A1t%C3%ADn-Str%C3%A1%C5%BEe' target='_blank' rel='noopener'>Booking.com</a> or <a href='https://www.airbnb.com/s/%C5%A0a%C5%A1t%C3%ADn-Str%C3%A1%C5%BEe--Slovakia/homes' target='_blank' rel='noopener'>Airbnb</a> around Šaštín-Stráže. If you'd like a proper hotel, there are none nearby, but <a href='https://www.booking.com/searchresults.html?ss=Bratislava' target='_blank' rel='noopener'>Bratislava has plenty</a>, from boutique to luxury: stay there and come out in the morning, about 1 hour by train or taxi.",
+    pension:{ title:"Penzión Gazárka", facts:[["Walk","2 min"],["Price","70 – 80 € / night"]],
+      text:"Small hotel with private bathrooms, no kitchen. Slovak-style breakfast for an extra fee, served until 10:00. About 70 to 80 € per double room per night.", cta:""},
+    chata:{ title:"Chata Kovalinka", facts:[["Dates","30.4 – 3.5"],["Places","35"],["Price","about 45 € / person"]],
+      text:"We've reserved 35 places for guests from abroad, from Friday 15:00 to Monday 11:00. About 45 € per person for the whole stay, depending on how many of us there are. Shared rooms with 3 or 4 beds, four shared bathrooms and a shared kitchen. Breakfast is on us every day, and we'll stock coffee, something to cook, drinks, some towels, an iron, shampoo and soap. Tell us if you need anything else.", cta:"Write to us to reserve a place."} },
+  it:{ locale:"it-IT", eyebrow:"Segnatevi la data", dateHero:"Sabato 1<sup>o</sup> maggio 2027", place:"Gazárka · Slovacchia",
     intro:"Ci sposiamo a Gazárka e ci piacerebbe tanto avervi con noi.",
-    soon:"I dettagli su viaggio e alloggio arriveranno presto.",
-    howLabel:"Il viaggio", howTitle:"Come arrivare",
-    stops:[
-      {code:"MIL → BTS",alt:"",text:"Volo diretto da Milano a Bratislava."},
-      {code:"MIL → VIE",alt:"oppure",text:"Volo per Vienna, poi circa 1 h fino a Bratislava in bus o treno."},
-      {code:"BTS → Gazárka",alt:"poi in treno",text:"Treno regionale da Bratislava hl. st. direzione Kúty. Scendere a Šaštín-Stráže."}
-    ],
-    mapBtn:"Apri in Maps", trainBtn:"Orari dei treni",
-    stayLabel:"Per chi arriva dall'estero", stayTitle:"Dove dormire",
-    stayText:"Abbiamo prenotato 35 posti alla Chata Kovalinka per chi arriva dall'estero, dal 30 aprile al 2 maggio.",
-    fWhen:"Date", fPlaces:"Posti" },
+    mapBtn:"Apri in Maps", orLabel:"Poi, a scelta", orWord:"oppure", bookBtn:"Vedi su Booking.com", stationBtn:"Stazione in Maps",
+    venueLabel:"Dove", venueTitle:"Tropic Pizza, Gazárka",
+    giftLabel:"Regali", giftTitle:"Niente regali, per favore", giftText:"Il regalo più bello è avervi con noi. Se proprio volete dare qualcosa, un piccolo contributo in contanti è gradito, ma davvero non è dovuto.",
+    progLabel:"Il programma", progTitle:"In arrivo", progText:"Si comincia sabato verso mezzogiorno e si va avanti fino alle 4 del mattino. Il programma completo arriverà più avanti.",
+    menuLabel:"Cibo", menuTitle:"Il menù", menuText:"Più avanti chiederemo a tutti allergie, intolleranze e preferenze. Per ora non dovete fare nulla.",
+    travelLabel:"Come arrivare", travelTitle:"Come raggiungere Gazárka",
+    travelIntro:"Gazárka è una località sul lago nella Slovacchia occidentale, a circa un'ora da Bratislava. Dall'Italia ci sono due strade comode, più una per i temerari. L'opzione 1 è la più semplice e vi lascia più vicino. L'opzione 2 passa da Vienna, utile se volete vedere anche la città.",
+    opt1:{ kicker:"Opzione 1", title:"Via Bratislava",
+      steps:[
+        "Volo <a href='https://www.ryanair.com' target='_blank' rel='noopener'>Ryanair</a> da Milano Malpensa (MXP) a Bratislava (BTS). Per esempio venerdì 30 aprile, 21:35 → 23:05, ideale per chi ha poche ferie, al momento circa 35 € senza bagaglio. Altri voli lunedì 26, martedì 27 e giovedì 29 aprile, uno al giorno.",
+        "Atterrate a Bratislava.",
+        {or:[
+          "Taxi diretto a Gazárka. Circa 1 ora, prezzi qui sotto.",
+          "<a href='https://www.uber.com' target='_blank' rel='noopener'>Uber</a> fino a Gazárka. Circa 60 – 80 € di giorno."
+        ]}
+      ],
+      note:"Stiamo trattando una tariffa di gruppo con una compagnia di taxi. Dettagli e prezzi presto. Possiamo anche mettervi in contatto per condividere l'auto. Se arrivate un giorno prima, potete anche dormire a Bratislava, vedere la città e raggiungerci la mattina in treno, vedi opzione 2."},
+    opt2:{ kicker:"Opzione 2", title:"Via Vienna",
+      steps:[
+        "Volo per Vienna (VIE): <a href='https://www.easyjet.com' target='_blank' rel='noopener'>easyJet</a> da Milano Linate (LIN), <a href='https://www.ryanair.com' target='_blank' rel='noopener'>Ryanair</a> da Milano Malpensa (MXP) o Bergamo Orio al Serio (BGY). Consigliamo 08:55 BGY → 10:20, 09:45 MXP → 11:15, oppure venerdì 30 aprile 13:25 LIN → 14:50. C'è anche un volo 17:15 → 18:40, ma arrivereste tardi e la sera non ci sono più treni.",
+        "Bus <a href='https://www.slovaklines.sk/en/slovakia/destinations-and-experiences/vienna/' target='_blank' rel='noopener'>Slovak Lines</a> dall'aeroporto alla stazione centrale di Bratislava (Hlavná stanica). Quasi ogni ora, 15 €, 50 minuti. Con 2 € in più il biglietto è rimborsabile in caso di cancellazione o ritardo.",
+        {or:[
+          "Treno per <a href='https://maps.app.goo.gl/YXfyM3RzLKd5Nks98' target='_blank' rel='noopener'>Šaštín-Stráže</a>. Circa 1 h 15, ogni 1 o 2 ore, ultimo treno alle 19:58, circa 4 €. Biglietti sull'app <a href='https://apps.apple.com/de/app/ideme-vlakom/id1465574367?l=en-GB' target='_blank' rel='noopener'>Ideme Vlakom</a> o su <a href='https://www.thetrainline.com' target='_blank' rel='noopener'>Trainline</a>. Dalla stazione Gazárka è a pochi minuti.",
+          "Taxi o <a href='https://www.uber.com' target='_blank' rel='noopener'>Uber</a> dalla stazione fino a Gazárka. Circa 1 ora, 50 – 80 €."
+        ]}
+      ],
+      note:""},
+    opt3:{ kicker:"Opzione 3, per i temerari", title:"Road trip",
+      steps:[
+        "Da Milano sono circa 950 km e 9 – 10 ore di guida, <a href='https://www.google.com/maps/dir/Milano/Gaz%C3%A1rka,+%C5%A0a%C5%A1t%C3%ADn-Str%C3%A1%C5%BEe' target='_blank' rel='noopener'>qui il percorso</a>. Spezzato in due giorni diventa un bel viaggio.",
+        "Lungo la strada ci sono tante belle soste: Verona, il lago di Garda, Trieste, Lubiana, Graz e Vienna. Oppure dal Brennero: Innsbruck, Salisburgo e i laghi del Salzkammergut.",
+        "Servono le vignette autostradali di Austria, Slovenia e Slovacchia: si comprano online in pochi minuti."
+      ],
+      note:"Sul posto l'auto non serve: la baita è a 2 minuti a piedi dalla festa. Torna utile per il viaggio e per le gite nei dintorni."},
+    travelOutro:"",
+    localTravel:"",
+    ideasLabel:"Fatene un viaggio", ideasTitle:"Venite qualche giorno prima o allungate la gita",
+    ideasText:"Sarete vicini a tre capitali. Il centro di Bratislava si gira in un pomeriggio, Vienna è a meno di un'ora di bus e Budapest a circa 3 ore di treno. Arrivate qualche giorno prima o fermatevi dopo il matrimonio e visitatene una.",
+    stayLabel:"Dove dormire", stayTitle:"Abbiamo prenotato una baita per voi",
+    stayIntro:"Per dormire non dovete preoccuparvi. Abbiamo riservato la Chata Kovalinka per chi arriva dall'estero: tutti insieme, a 2 minuti a piedi dalla festa. Per noi è l'opzione migliore. Se preferite qualcos'altro, qui sotto trovate un'alternativa.", stayAlt:"Altre opzioni", stayAltText:"Penzión Gazárka, se volete qualcosa di più riservato.", stayMore:"Oppure cercate su <a href='https://www.booking.com/searchresults.html?ss=%C5%A0a%C5%A1t%C3%ADn-Str%C3%A1%C5%BEe' target='_blank' rel='noopener'>Booking.com</a> o <a href='https://www.airbnb.com/s/%C5%A0a%C5%A1t%C3%ADn-Str%C3%A1%C5%BEe--Slovakia/homes' target='_blank' rel='noopener'>Airbnb</a> nei dintorni di Šaštín-Stráže. Se volete un vero hotel, qui vicino non ce ne sono, ma <a href='https://www.booking.com/searchresults.html?ss=Bratislava' target='_blank' rel='noopener'>a Bratislava ce ne sono tanti</a>, dai boutique ai lusso: dormite lì e venite la mattina, circa 1 ora di treno o taxi.",
+    pension:{ title:"Penzión Gazárka", facts:[["A piedi","2 min"],["Prezzo","70 – 80 € / notte"]],
+      text:"Piccolo hotel con bagno privato, senza cucina. Colazione slovacca a pagamento, servita fino alle 10:00. Circa 70 – 80 € a notte per camera doppia.", cta:""},
+    chata:{ title:"Chata Kovalinka", facts:[["Date","30.4 – 3.5"],["Posti","35"],["Prezzo","circa 45 € a persona"]],
+      text:"Abbiamo riservato 35 posti per chi arriva dall'estero, dal venerdì alle 15:00 al lunedì alle 11:00. Circa 45 € a persona per tutto il soggiorno, a seconda di quanti saremo. Camere condivise da 3 o 4 letti, quattro bagni in comune e cucina condivisa. La colazione la offriamo noi ogni giorno, e ci pensiamo noi a caffè, qualcosa da cucinare, bevande, qualche asciugamano, ferro da stiro, shampoo e sapone. Diteci se vi serve altro.", cta:"Scriveteci per prenotare un posto."} },
   sk:{ locale:"sk-SK", eyebrow:"Poznačte si dátum", dateHero:"1. mája 2027", place:"Gazárka · Slovensko",
     intro:"Berieme sa na Gazárke a budeme radi, ak prídete.",
-    soon:"Podrobnosti o ceste a ubytovaní pošleme čoskoro.",
-    howLabel:"Cesta", howTitle:"Ako sa k nám dostať",
-    stops:[
-      {code:"MIL → BTS",alt:"",text:"Priamy let z Milána do Bratislavy."},
-      {code:"MIL → VIE",alt:"alebo",text:"Let do Viedne, potom asi 1 h do Bratislavy autobusom alebo vlakom."},
-      {code:"BTS → Gazárka",alt:"potom vlakom",text:"Regionálny vlak z Bratislavy hl. st. smer Kúty. Vystúpte v Šaštíne-Strážach."}
-    ],
-    mapBtn:"Otvoriť v Mapách", trainBtn:"Cestovný poriadok",
-    stayLabel:"Pre hostí zo zahraničia", stayTitle:"Ubytovanie",
-    stayText:"Pre hostí zo zahraničia máme rezervovaných 35 miest v Chate Kovalinka, od 30. apríla do 2. mája.",
-    fWhen:"Termín", fPlaces:"Miesta" }
+    mapBtn:"Otvoriť v Mapách", bookBtn:"Pozrieť na Booking.com", stationBtn:"Stanica v Mapách",
+    venueLabel:"Kde", venueTitle:"Tropic Pizza, Gazárka",
+    giftLabel:"Dary", giftTitle:"Prosíme, žiadne dary", giftText:"Najkrajším darom je, že prídete. Ak by ste predsa chceli niečo dať, poteší nás malý finančný príspevok, ale naozaj to nie je potrebné.",
+    progLabel:"Program", progTitle:"Už čoskoro", progText:"Začíname v sobotu okolo poludnia a oslavujeme do 4:00 ráno. Podrobný program pošleme neskôr.",
+    menuLabel:"Jedlo", menuTitle:"Menu", menuText:"Bližšie k termínu sa všetkých opýtame na alergie, diéty a preferencie. Zatiaľ nemusíte nič riešiť.",
+    travelLabel:"Cesta", travelTitle:"Ako sa dostať na Gazárku",
+    travelIntro:"", opt1:null, opt2:null, travelOutro:"",
+    localTravel:"Autom podľa mapy vyššie. Vlakom do stanice <a href='https://maps.app.goo.gl/YXfyM3RzLKd5Nks98' target='_blank' rel='noopener'>Šaštín-Stráže</a> (z Bratislavy hl. st. asi 1 h 15, smer Kúty), odtiaľ je Gazárka kúsok pešo alebo taxíkom. Autobusom priamo na zastávku Šaštín-Stráže, Gazárka: spoje z Bratislavy, Senice a Malaciek nájdete na <a href='https://cp.sk/vlakbus/spojenie/' target='_blank' rel='noopener'>cp.sk</a>. Lístky na vlak aj v aplikácii <a href='https://apps.apple.com/de/app/ideme-vlakom/id1465574367?l=en-GB' target='_blank' rel='noopener'>Ideme vlakom</a>.",
+    ideasLabel:"", ideasTitle:"", ideasText:"",
+    stayLabel:"Ubytovanie", stayTitle:"Hneď vedľa miesta svadby", stayIntro:"", stayAlt:"",
+    pension:{ title:"Penzión Gazárka", facts:[["Pešo","2 min"],["Cena","70 – 80 € / noc"]],
+      text:"Malý penzión s vlastnou kúpeľňou, bez kuchyne. Slovenské raňajky za príplatok, podávajú sa do 10:00. Približne 70 – 80 € za dvojlôžkovú izbu na noc.",
+      cta:"Pár izieb máme rezervovaných, ozvite sa nám. Alebo si nájdite ubytovanie v okolí."},
+    chata:null }
 };
 
 const $=s=>document.querySelector(s);
@@ -233,24 +406,89 @@ $('#names').innerHTML=`${CONFIG.names[0]}<span class="amp">&amp;</span>${CONFIG.
 $('#topNames').textContent=`${CONFIG.names[0]} & ${CONFIG.names[1]}`;
 $('#fNames').textContent=`${CONFIG.names[0]} & ${CONFIG.names[1]}`;
 $('#fDate').textContent=`${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`;
-$('#mapGaz').href=CONFIG.maps.gazarka; $('#mapStay').href=CONFIG.maps.kovalinka;
-document.querySelectorAll('.details').forEach(s=>{ s.hidden=!CONFIG.showDetails; });
+$('#mapVenue').href=CONFIG.maps.venue;
+$('#stationLink').href=CONFIG.maps.station; $('#stationLink2').href=CONFIG.maps.station;
+
+const esc=x=>String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+function optCard(o,t){
+  const step=(st,i)=>{
+    const last=i===o.steps.length-1;
+    if(st&&st.or) return `<li class="stop fork${last?' end':''}"><span class="dot"></span><div><p class="either">${esc(t.orLabel)}</p><div class="branches">${st.or.map((b,k)=>`<div class="branch">${k>0?`<span class="orw">${esc(t.orWord)}</span>`:''}<p>${b}</p></div>`).join('')}</div></div></li>`;
+    return `<li class="stop${last?' end':''}"><span class="dot"></span><div><p>${st}</p></div></li>`;
+  };
+  return `<article class="card opt"><p class="kicker">${esc(o.kicker)}</p><h3>${esc(o.title)}</h3>
+    <ol class="stops">${o.steps.map(step).join('')}</ol>
+    ${o.note?`<p class="note">${o.note}</p>`:''}</article>`;
+}
+function stayCard(c,photos,n){
+  const strip=`<div class="strip slides">${photos.map((src,k)=>`<img src="${src}" alt="" loading="lazy"${k===0?' class="on"':''}>`).join('')}<button type="button" class="sl-nav sl-prev" aria-label="Previous">‹</button><button type="button" class="sl-nav sl-next" aria-label="Next">›</button><div class="dots">${photos.map((_,k)=>`<button type="button" data-k="${k}"${k===0?' class="on"':''} aria-label="${k+1}"></button>`).join('')}</div></div>`;
+  const facts=`<dl class="facts">${c.facts.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>`;
+  const links=c.map?`<div class="links"><a class="btn" href="${c.map}" target="_blank" rel="noopener">${c.mapBtn}</a></div>`:c.book?`<div class="links"><a class="btn" href="${c.book}" target="_blank" rel="noopener">${c.bookBtn}</a></div>`:'';
+  return `<article class="card stay"><h3>${esc(c.title)}</h3>${strip}${facts}<p>${esc(c.text)}</p>${c.cta?`<p><strong>${esc(c.cta)}</strong></p>`:''}${links}</article>`;
+}
 
 function setLang(l){
   const t=T[l]||T.en; l=T[l]?l:'en';
   document.documentElement.lang=l;
-  document.querySelectorAll('[data-t]').forEach(el=>{ el.textContent=t[el.dataset.t]; });
+  document.querySelectorAll('[data-t]').forEach(el=>{ el.textContent=t[el.dataset.t]||''; });
   $('#dateShort').innerHTML=t.dateHero;
-  $('#dateLong').textContent=new Intl.DateTimeFormat(t.locale,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d);
-  $('#stops').innerHTML=t.stops.map((s,i)=>`<li class="stop${i===t.stops.length-1?' end':''}"><span class="dot"></span><div><div class="head"><span class="code">${s.code.replace('→','<span class="arrow">→</span>')}</span>${s.alt?`<span class="alt">${s.alt}</span>`:''}</div><p>${s.text}</p></div></li>`).join('');
+  const dl=new Intl.DateTimeFormat(t.locale,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d);
+  $('#dateLong').textContent=dl.charAt(0).toUpperCase()+dl.slice(1);
+  const abroad=l!=='sk';
+  document.querySelectorAll('.abroad').forEach(s=>{ s.hidden=!abroad; });
+  document.querySelectorAll('.local').forEach(s=>{ s.hidden=abroad; });
+  if(abroad) $('#options').innerHTML=optCard(t.opt1,t)+optCard(t.opt2,t)+(t.opt3?optCard(t.opt3,t):'');
+  $('#localTravel').innerHTML=t.localTravel||'';
+  $('#stayAltText').innerHTML=t.stayAltText||'';
+  $('#stayMore').innerHTML=t.stayMore||'';
+  const others=stayCard(Object.assign({book:CONFIG.booking.penzion,bookBtn:t.bookBtn},t.pension),CONFIG.photos.penzion,2);
+  if(t.chata){ $('#stays').innerHTML=stayCard(Object.assign({map:CONFIG.maps.kovalinka,mapBtn:t.mapBtn},t.chata),CONFIG.photos.chata,3); $('#stays2').innerHTML=others; }
+  else { $('#stays').innerHTML=others; $('#stays2').innerHTML=''; }
   document.querySelectorAll('#langs button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.lang===l)));
   try{localStorage.setItem('wedding-lang',l)}catch(e){}
 }
 document.querySelectorAll('#langs button').forEach(x=>x.addEventListener('click',()=>setLang(x.dataset.lang)));
-let initial='en';
-try{ initial=localStorage.getItem('wedding-lang')||''; }catch(e){}
+let initial=(location.hash||'').replace('#','').toLowerCase();
+if(!T[initial]){ try{ initial=localStorage.getItem('wedding-lang')||''; }catch(e){} }
 if(!T[initial]){ const nav=(navigator.languages||[navigator.language||'en']).map(x=>x.slice(0,2).toLowerCase()); initial=nav.find(x=>T[x])||'en'; }
 setLang(initial);
+addEventListener('hashchange',()=>{ const h=location.hash.replace('#','').toLowerCase(); if(T[h]) setLang(h); });
+
+// ---- Lightbox for the photo strips ----
+(function(){
+  const lb=$('#lightbox'), im=$('#lbImg'), count=$('#lbCount');
+  let list=[], i=0;
+  function show(n){ i=(n+list.length)%list.length; im.src=list[i]; count.textContent=list.length>1?`${i+1} / ${list.length}`:''; }
+  function open(strip,img){ list=[...strip.querySelectorAll('img')].map(x=>x.currentSrc||x.src); show(list.indexOf(img.currentSrc||img.src)); lb.hidden=false; document.body.style.overflow='hidden'; }
+  function close(){ lb.hidden=true; im.src=''; document.body.style.overflow=''; }
+  document.addEventListener('click',e=>{ if(e.target.closest('.dots')||e.target.closest('.sl-nav')) return; const st=e.target.closest('.strip'); if(!st) return; const t=e.target.closest('img')||st.querySelector('img.on')||st.querySelector('img'); open(st,t); });
+  lb.addEventListener('click',e=>{ if(e.target===lb||e.target===im||e.target.id==='lbClose') close(); });
+  $('#lbPrev').addEventListener('click',()=>show(i-1)); $('#lbNext').addEventListener('click',()=>show(i+1));
+  addEventListener('keydown',e=>{ if(lb.hidden) return; if(e.key==='Escape') close(); if(e.key==='ArrowLeft') show(i-1); if(e.key==='ArrowRight') show(i+1); });
+  let x0=null;
+  lb.addEventListener('touchstart',e=>{ x0=e.touches[0].clientX; },{passive:true});
+  lb.addEventListener('touchend',e=>{ if(x0===null) return; const dx=e.changedTouches[0].clientX-x0; x0=null; if(Math.abs(dx)>40) show(dx<0?i+1:i-1); });
+})();
+
+// ---- Slideshows: auto-advance, pause on hover, dots ----
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function setup(sl){
+    const imgs=[...sl.querySelectorAll('img')], dots=[...sl.querySelectorAll('.dots button')]; let i=0, timer=null;
+    function go(n){ i=(n+imgs.length)%imgs.length; imgs.forEach((im,k)=>im.classList.toggle('on',k===i)); dots.forEach((d,k)=>d.classList.toggle('on',k===i)); }
+    function start(){ if(reduce||imgs.length<2) return; stop(); timer=setInterval(()=>go(i+1),6000); }
+    function stop(){ if(timer) clearInterval(timer); timer=null; }
+    dots.forEach(d=>d.addEventListener('click',e=>{ e.stopPropagation(); go(+d.dataset.k); start(); }));
+    const pv=sl.querySelector('.sl-prev'), nx=sl.querySelector('.sl-next');
+    if(pv) pv.addEventListener('click',e=>{ e.stopPropagation(); go(i-1); start(); });
+    if(nx) nx.addEventListener('click',e=>{ e.stopPropagation(); go(i+1); start(); });
+    sl.addEventListener('mouseenter',stop); sl.addEventListener('mouseleave',start);
+    start();
+  }
+  const seen=new WeakSet();
+  function scan(){ document.querySelectorAll('.slides').forEach(sl=>{ if(!seen.has(sl)){ seen.add(sl); setup(sl); } }); }
+  scan(); new MutationObserver(scan).observe(document.querySelector('main'),{childList:true,subtree:true});
+})();
 
 // ---- Hero crop: keep the ring in frame, show as much sunset as the box allows ----
 (function(){
