@@ -97,15 +97,15 @@ main.wide{max-width:58rem}
 main .beach{aspect-ratio:4/3;overflow:hidden}
 @media (min-width:641px){
   .hero{align-content:center;justify-items:end;text-align:right}
-  .hero .bg{object-position:50% 40%}
-  .hero::before{background:radial-gradient(ellipse 26% 30% at 84% 20%,rgba(243,236,226,.6) 0%,rgba(243,236,226,.3) 55%,rgba(243,236,226,0) 100%)}
-  .hero .inner{padding:0 clamp(2rem,6vw,6rem) 64vh 0;max-width:40rem;justify-items:end}
+  .hero::before{background:radial-gradient(ellipse 26% 30% at 84% 47%,rgba(243,236,226,.6) 0%,rgba(243,236,226,.3) 55%,rgba(243,236,226,0) 100%)}
+  .hero .inner{padding:0 clamp(2rem,6vw,6rem) 6vh 0;max-width:40rem;justify-items:end}
   .hero h1{font-size:clamp(3.25rem,7vw,6rem)}
+  .hero .bg{filter:brightness(1.2) saturate(1.08)}
   .top .mono{display:none}
   .top{justify-content:flex-end}
   main .beach{display:none}
   .pair{grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:3rem;align-items:center}
-  .pair .ring{display:block;aspect-ratio:3/4;overflow:hidden;order:1}
+  .pair .ring{display:block;aspect-ratio:4/3;overflow:hidden;order:1}
   .pair .text{justify-items:start;text-align:left}
   .pair .intro,.pair .soon{text-align:left;justify-self:start}
   .pair .rule{justify-self:start}
@@ -133,7 +133,7 @@ main .beach{aspect-ratio:4/3;overflow:hidden}
 
 <main class="gutter wide">
   <section class="pair">
-    <figure class="ring"><img class="photo" src="img/sunset.jpg" alt=""></figure>
+    <figure class="ring"><img class="photo" src="img/beach-fixed.jpg" alt=""></figure>
     <div class="text">
       <p class="long" id="dateLong"></p>
       <p class="intro" data-t="intro"></p>
@@ -260,9 +260,6 @@ setLang(initial);
   const wide=matchMedia('(min-width:641px)');
   function fit(){
     // wide: the beach photo behind the names. phones: the vertical ring photo, cropped to keep the ring
-    const want=wide.matches?'img/beach-fixed.jpg':'img/sunset.jpg';
-    if(img.getAttribute('src')!==want) img.setAttribute('src',want);
-    if(wide.matches){ img.style.objectPosition=''; return; }
     const w=box.clientWidth, h=box.clientHeight;
     const f=h/(w/AR);        // fraction of the photo height visible when width-fitted
     let y=50;
