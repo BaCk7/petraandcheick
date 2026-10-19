@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Petra & Cheick</title>
+<link rel="stylesheet" href="identity.css">
+<style>
+@page{size:A3 portrait;margin:0}
+body{padding:1.5rem 16px;display:grid;justify-items:center;gap:1rem}
+.bar{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+.bar button,.bar a{font:inherit;font-size:.875rem;padding:.5rem .75rem;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink);text-decoration:none;cursor:pointer}
+.sheet{--w:297mm;width:var(--w);aspect-ratio:297/420;background:var(--paper);padding:7% 8%;display:grid;grid-template-rows:auto auto 1fr auto auto;gap:4%;text-align:center;justify-items:center;position:relative;box-shadow:0 1px 3px rgba(0,0,0,.1);max-width:100%}
+.sheet .eyebrow{font-size:1.1em;margin:0}
+.sheet .names{font-size:4.2em;margin:0;text-wrap:balance}
+.sheet .photo{width:100%;height:100%;min-height:0;overflow:hidden}
+.sheet .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
+.sheet .date{margin:0;font-family:var(--display);font-style:italic;font-weight:600;font-size:2.4em;white-space:nowrap;line-height:1;color:var(--ink)}
+.sheet .date sup{font-size:.42em;vertical-align:baseline;position:relative;top:-.9em}
+.sheet .sep{width:100%;font-size:1em}
+.sheet .foot{margin:0;font-size:.95em;letter-spacing:.14em;color:var(--dim)}
+.sheet{font-size:calc(var(--w) / 28)}
+@media (max-width:760px){ .sheet{--w:100vw;font-size:calc(100vw / 28)} }
+@media print{ body{padding:0;gap:0;display:block} .sheet{box-shadow:none;--w:297mm;font-size:calc(297mm / 28);height:420mm} }
+</style>
+</head>
+<body>
+<div class="bar noprint"><a href="#it">IT</a><a href="#en">EN</a><a href="#sk">SK</a><button type="button" onclick="print()">Print / PDF (A3)</button></div>
+<article class="sheet">
+  <p class="eyebrow" id="eyebrow"></p>
+  <h1 class="names" id="names"></h1>
+  <figure class="photo" style="margin:0"><img src="img/beach-fixed.jpg" alt=""></figure>
+  <div style="width:100%;display:grid;gap:.4em;justify-items:center"><p class="date lnum" id="date"></p></div>
+  <div style="width:100%;display:grid;gap:.6em"><p class="sep" id="place"></p><p class="foot" id="foot"></p></div>
+</article>
+<script src="content/site.js"></script>
+<script>
+const T=SITE.text, n=SITE.config.names;
+const extra={en:{foot:'petraandcheick.com'},it:{foot:'petraandcheick.com'},sk:{foot:'petraandcheick.com'}};
+function go(){ let l=(location.hash||'#en').slice(1); if(!T[l]) l='en'; const t=T[l];
+  document.documentElement.lang=l;
+  document.getElementById('eyebrow').textContent=t.eyebrow;
+  document.getElementById('names').innerHTML=`${n[0]}<span class="amp">&amp;</span>${n[1]}`;
+  document.getElementById('date').innerHTML=t.dateHero;
+  document.getElementById('place').textContent=t.place;
+  document.getElementById('foot').textContent=extra[l].foot;
+}
+addEventListener('hashchange',go); go();
+</script>
+</body>
+</html>
