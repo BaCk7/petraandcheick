@@ -313,7 +313,7 @@ function optCard(o,t){
     ${o.note?`<p class="note">${o.note}</p>`:''}</article>`;
 }
 function stayCard(c,photos,n){
-  const strip=`<div class="strip slides">${photos.map((src,k)=>`<img src="${src}" alt="" loading="lazy"${k===0?' class="on"':''}>`).join('')}<button type="button" class="sl-nav sl-prev" aria-label="Previous">‹</button><button type="button" class="sl-nav sl-next" aria-label="Next">›</button><div class="dots">${photos.map((_,k)=>`<button type="button" data-k="${k}"${k===0?' class="on"':''} aria-label="${k+1}"></button>`).join('')}</div></div>`;
+  const strip=`<div class="strip slides">${photos.map((src,k)=>`<img src="${src}" alt="" loading="lazy"${k===0?' class="on"':''}>`).join('')}${photos.length>1?`<button type="button" class="sl-nav sl-prev" aria-label="Previous">‹</button><button type="button" class="sl-nav sl-next" aria-label="Next">›</button><div class="dots">${photos.map((_,k)=>`<button type="button" data-k="${k}"${k===0?' class="on"':''} aria-label="${k+1}"></button>`).join('')}</div>`:''}</div>`;
   const facts=`<dl class="facts">${c.facts.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>`;
   const links=c.map?`<div class="links"><a class="btn" href="${c.map}" target="_blank" rel="noopener">${c.mapBtn}</a></div>`:c.book?`<div class="links"><a class="btn" href="${c.book}" target="_blank" rel="noopener">${c.bookBtn}</a></div>`:'';
   return `<article class="card stay"><h3>${esc(c.title)}</h3>${strip}${facts}<p>${esc(c.text)}</p>${c.cta?`<p><strong>${esc(c.cta)}</strong></p>`:''}${links}</article>`;
@@ -333,7 +333,8 @@ function setLang(l){
   $('#localTravel').innerHTML=t.localTravel||'';
   $('#stayAltText').innerHTML=t.stayAltText||'';
   $('#stayMore').innerHTML=t.stayMore||'';
-  const others=stayCard(Object.assign({book:CONFIG.booking.penzion,bookBtn:t.bookBtn},t.pension),CONFIG.photos.penzion,2);
+  const others=stayCard(Object.assign({book:CONFIG.booking.penzion,bookBtn:t.bookBtn},t.pension),CONFIG.photos.penzion,2)
+    +(t.karpatia?stayCard(Object.assign({book:CONFIG.booking.karpatia,bookBtn:t.bookBtn},t.karpatia),CONFIG.photos.karpatia,1):'');
   if(t.chata){ $('#stays').innerHTML=stayCard(Object.assign({map:CONFIG.maps.kovalinka,mapBtn:t.mapBtn},t.chata),CONFIG.photos.chata,3); $('#stays2').innerHTML=others; }
   else { $('#stays').innerHTML=others; $('#stays2').innerHTML=''; }
   document.querySelectorAll('#langs button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.lang===l)));

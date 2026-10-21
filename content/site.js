@@ -24,10 +24,11 @@ window.SITE = {
     station: "https://maps.app.goo.gl/YXfyM3RzLKd5Nks98",
     kovalinka: "https://maps.app.goo.gl/BATRRxTWzp5rVxjc9"
   },
-  booking: { penzion: "https://www.booking.com/Share-Sb28KL" },
+  booking: { penzion: "https://www.booking.com/Share-Sb28KL", karpatia: "https://www.booking.com/Share-v2ESjC" },
   photos: {
     chata: ["img/chata-1.jpg","img/chata-2.jpg","img/chata-3.jpg","img/chata-4.jpg","img/chata-5.jpg","img/chata-6.jpg"],
-    penzion: ["img/penzion-1.jpg","img/penzion-2.jpg"]
+    penzion: ["img/penzion-1.jpg","img/penzion-2.jpg"],
+    karpatia: ["img/karpatia-1.jpg"]
   }
 },
   text: {
@@ -130,6 +131,8 @@ window.SITE = {
     pension:{ title:"Penzión Gazárka", facts:[["Pešo","2 min"],["Cena","70 – 80 € / noc"]],
       text:"Malý penzión s vlastnou kúpeľňou, bez kuchyne. Slovenské raňajky za príplatok, podávajú sa do 10:00. Približne 70 – 80 € za dvojlôžkovú izbu na noc.",
       cta:"Pár izieb máme rezervovaných, ozvite sa nám. Alebo si nájdite ubytovanie v okolí."},
+    karpatia:{ title:"Ubytovňa Karpatia", facts:[["Kde","Šaštín-Stráže"],["Typ","lacnejšie, turistická ubytovňa"]],
+      text:"Jednoduchšia a lacnejšia možnosť v obci, pár minút autom od miesta svadby.", cta:""},
     chata:null }
 }
 };
