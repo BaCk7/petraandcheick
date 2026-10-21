@@ -70,7 +70,7 @@ window.SITE = {
       text:"Small guesthouse, private bathrooms, no kitchen. Breakfast until 10:00 for a small fee. 70 – 80 € per night for two.", cta:""},
     chata:{ title:"Chata Kovalinka", facts:[["Dates","30 Apr – 3 May"],["Places","35"],["Price","about 45 € / person for all 3 nights"]],
       text:"35 places, Friday 15:00 to Monday 11:00. About 45 € per person for the three nights, depending on numbers. Rooms of 3 or 4 beds, four shared bathrooms, a kitchen. Breakfast on us, plus coffee, basics to cook, drinks, towels, an iron, shampoo and soap. Need anything else? Tell us.", cta:"Message us to reserve."} },
-  it:{ locale:"it-IT", eyebrow:"Segnatevi la data", dateHero:"Sabato 1<sup>o</sup> maggio 2027", place:"Gazárka · Slovacchia",
+  it:{ locale:"it-IT", eyebrow:"Save the date", dateHero:"Sabato 1<sup>o</sup> maggio 2027", place:"Gazárka · Slovacchia",
     intro:"Ci sposiamo a Gazárka e ci piacerebbe tanto avervi con noi.",
     mapBtn:"Apri in Maps", orLabel:"Poi, a scelta", orWord:"oppure", bookBtn:"Vedi su Booking.com", stationBtn:"Stazione in Maps",
     venueLabel:"Dove", venueTitle:"Tropic Pizza, Gazárka",
