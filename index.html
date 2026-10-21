@@ -84,6 +84,9 @@ figcaption{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:v
 
 /* Details: venue, travel options, stay cards */
 .lead{margin:0;color:var(--muted);max-width:60ch}
+#gifts .lead{white-space:pre-line}
+.lead ul{text-align:left;margin:0;padding-left:1.2em;display:inline-block}
+.lead li{margin:.3em 0}
 .sub{margin:1rem 0 0;font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-ink)}
 .addr{margin:0;color:var(--muted);text-align:center}
 .card{text-align:center}
@@ -107,6 +110,7 @@ main section>.lead,main section>.sub{text-align:center;justify-self:center}
 .orw{display:block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:.2rem}
 @media (min-width:641px){.branches{grid-template-columns:1fr 1fr;gap:1.25rem}}
 .opt a,.lead a{color:var(--gold-ink);text-decoration-thickness:1px;text-underline-offset:3px}
+.flights{margin:.4rem 0 .5rem;padding-left:1.1rem;list-style:disc}.flights li{margin:.15rem 0}
 .strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem}
 .strip img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
 .strip.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -239,7 +243,9 @@ main .beach{aspect-ratio:4/3;overflow:hidden}
   <section id="local" class="local">
     <p class="label" data-t="travelLabel"></p>
     <h2 data-t="travelTitle"></h2>
-    <p class="lead" id="localTravel"></p>
+    <p class="lead" id="localIntro"></p>
+    <div class="two" id="options2"></div>
+    <div class="lead" id="localTravel"></div>
     <div class="links" hidden><a class="btn primary" id="stationLink2" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 14s-4.5-4.2-4.5-7.5a4.5 4.5 0 0 1 9 0C12.5 9.8 8 14 8 14z"/><circle cx="8" cy="6.5" r="1.6"/></svg><span data-t="stationBtn"></span></a></div>
   </section>
 
@@ -329,7 +335,9 @@ function setLang(l){
   const abroad=l!=='sk';
   document.querySelectorAll('.abroad').forEach(s=>{ s.hidden=!abroad; });
   document.querySelectorAll('.local').forEach(s=>{ s.hidden=abroad; });
-  if(abroad) $('#options').innerHTML=optCard(t.opt1,t)+optCard(t.opt2,t)+(t.opt3?optCard(t.opt3,t):'');
+  const cards=t.opt1?optCard(t.opt1,t)+optCard(t.opt2,t)+(t.opt3?optCard(t.opt3,t):''):'';
+  $('#options').innerHTML=abroad?cards:''; $('#options2').innerHTML=abroad?'':cards;
+  $('#localIntro').innerHTML=abroad?'':(t.travelIntro||'');
   $('#localTravel').innerHTML=t.localTravel||'';
   $('#stayAltText').innerHTML=t.stayAltText||'';
   $('#stayMore').innerHTML=t.stayMore||'';
