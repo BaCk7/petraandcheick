@@ -340,11 +340,12 @@ function setLang(l){
   document.querySelectorAll('#langs button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.lang===l)));
   try{localStorage.setItem('wedding-lang',l)}catch(e){}
 }
-document.querySelectorAll('#langs button').forEach(x=>x.addEventListener('click',()=>setLang(x.dataset.lang)));
+document.querySelectorAll('#langs button').forEach(x=>x.addEventListener('click',()=>{ setLang(x.dataset.lang); try{ history.replaceState(null,'',location.pathname+location.search+'#'+x.dataset.lang); }catch(e){} }));
 let initial=(location.hash||'').replace('#','').toLowerCase();
 if(!T[initial]){ try{ initial=localStorage.getItem('wedding-lang')||''; }catch(e){} }
 if(!T[initial]){ const nav=(navigator.languages||[navigator.language||'en']).map(x=>x.slice(0,2).toLowerCase()); initial=nav.find(x=>T[x])||'en'; }
 setLang(initial);
+if(!location.hash){ try{ history.replaceState(null,'',location.pathname+location.search+'#'+initial); }catch(e){} }
 addEventListener('hashchange',()=>{ const h=location.hash.replace('#','').toLowerCase(); if(T[h]) setLang(h); });
 
 // ---- Lightbox for the photo strips ----
