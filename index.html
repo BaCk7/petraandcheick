@@ -85,6 +85,7 @@ figcaption{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:v
 /* Details: venue, travel options, stay cards */
 .lead{margin:0;color:var(--muted);max-width:60ch}
 #gifts .lead{white-space:pre-line}
+.stay>p{white-space:pre-line}
 .lead ul{text-align:left;margin:0;padding-left:1.2em;display:inline-block}
 .lead li{margin:.3em 0}
 .sub{margin:1rem 0 0;font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-ink)}
@@ -330,7 +331,7 @@ function setLang(l){
   document.documentElement.lang=l;
   document.querySelectorAll('[data-t]').forEach(el=>{ el.textContent=t[el.dataset.t]||''; });
   $('#dateShort').innerHTML=t.dateHero;
-  const dl=new Intl.DateTimeFormat(t.locale,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d);
+  const dl=t.dateLong||new Intl.DateTimeFormat(t.locale,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d);
   $('#dateLong').textContent=dl.charAt(0).toUpperCase()+dl.slice(1);
   const abroad=l!=='sk';
   document.querySelectorAll('.abroad').forEach(s=>{ s.hidden=!abroad; });
