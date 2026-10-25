@@ -102,7 +102,7 @@ window.SITE = {
     opt3:{ kicker:"Opzione 3, per i temerari", title:"Road trip",
       steps:[
         "Da Milano circa 950 km, 9 – 10 ore, <a href='https://www.google.com/maps/dir/Milano/Gaz%C3%A1rka,+%C5%A0a%C5%A1t%C3%ADn-Str%C3%A1%C5%BEe' target='_blank' rel='noopener'>qui il percorso</a>. In due giorni diventa un bel viaggio.",
-        "Soste belle lungo la strada: Verona, Garda, Trieste, Lubiana, Graz, Vienna. O dal Brennero: Innsbruck, Salisburgo, Salzkammergut.",
+        "Soste belle lungo la strada: Verona, Garda, Trieste, Lubiana, Graz, Vienna. O dal Brennero: Trento, Bolzano, Innsbruck, Salisburgo, Vienna, Bratislava.",
         "Occhio alle vignette autostradali: a seconda del percorso servono quelle di Austria, Slovenia o Slovacchia, si comprano online."
       ],
       note:"Sul posto l'auto non serve, la baita è a 2 minuti a piedi dalla location. Utile per il viaggio e le gite."},
